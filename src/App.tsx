@@ -20,17 +20,16 @@ async function fetcher(query: string) {
 function App() {
   const [input, setInput] = useState("");
   const [query, setQuery] = useState("");
-  const [message, _] = useState("Welcome");
   const { data, isLoading } = useSWR(query, fetcher);
 
-  function handleInput(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleOnClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     setQuery(input);
   }
 
   return (
     <>
-      <div className="container mx-auto py-12 flex flex-col ">
+      <div className="container mx-auto py-12 flex flex-col">
         <form className="flex flex-row space-x-2 justify-center">
           <input
             className="border-2 border-gray-400 p-2"
@@ -40,14 +39,14 @@ function App() {
           />
           <button
             type="button"
-            onClick={handleInput}
+            onClick={handleOnClick}
             className="bg-black p-2 text-white"
           >
             Search
           </button>
         </form>
         <div className="my-4 text-center">
-          {isLoading ? null : data?.results?.length >= 0 ? null : message}
+          {isLoading ? null : data?.results?.length >= 0 ? null : "Welcome"}
           {isLoading
             ? "searching..."
             : data?.results?.length === 0
