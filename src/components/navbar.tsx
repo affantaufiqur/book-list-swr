@@ -2,47 +2,46 @@ import { Search } from "lucide-react";
 import Brand from "./brand";
 import { useRouter } from "@tanstack/react-router";
 
+const routes = [
+	{
+		pathName: "/",
+		href: "/",
+		name: "All",
+	},
+	{
+		pathName: "/latest",
+		href: "/latest",
+		name: "Latest",
+	},
+	{
+		pathName: "/top-picks",
+		href: "/top-picks",
+		name: "Top Picks",
+	},
+];
+
 export default function Navbar() {
 	const router = useRouter();
-	console.log(router.state.location.href);
-
-	const routes = [
-		{
-			pathName: "/",
-			href: "/",
-            name: 'All'
-		},
-		{
-			pathName: "/latest",
-			href: "/latest",
-            name: 'Latest'
-		},
-		{
-			pathName: "/top-picks",
-			href: "/top-picks",
-            name: "Top Picks"
-		},
-	];
 
 	return (
 		<div className="container mx-auto">
 			<div className="flex flex-row items-center justify-between">
 				<Brand />
-				<div className="">
-					<nav className="flex flex-row space-x-4">
-						{routes.map((route, index) => (
-							<a
-								href={route.href}
-								className={`text-sm font-medium ${
-									router.state.location.href === route.href ? "text-purple-primary" : "text-slate-800"
-								}`}
-								key={index}
-							>
-								{route.name}
-							</a>
-						))}
-					</nav>
-				</div>
+				<nav className="flex flex-row space-x-4">
+					{routes.map((route, index) => (
+						<a
+							href={route.href}
+							className={`text-sm font-medium ${
+								router.state.location.href === route.href
+									? "text-purple-primary"
+									: "text-slate-800 hover:underline"
+							}`}
+							key={index}
+						>
+							{route.name}
+						</a>
+					))}
+				</nav>
 
 				<div className="flex flex-row space-x-2">
 					<div className="relative">

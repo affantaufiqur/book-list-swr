@@ -25,7 +25,7 @@ export default function BookBig({ data }: TypeBookBig) {
 						</div>
 					</div>
 					<p>{truncateText(data.synopsis as string, 100)}</p>
-					<button className="rounded-md border-2 border-purple-primary bg-transparent px-4 py-2 text-lg font-medium tracking-tight text-purple-primary">
+					<button className="rounded-md border-2 border-purple-primary bg-transparent px-4 py-2 text-xl font-medium tracking-tight text-purple-primary">
 						Read Book
 					</button>
 				</div>
