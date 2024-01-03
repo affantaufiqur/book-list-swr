@@ -3,6 +3,7 @@ import Layout from "./components/layout";
 import Index from "./routes/index.tsx";
 import Latest from "./routes/latest.tsx";
 import TopPicks from "./routes/top-picks.tsx";
+import Search from "./routes/search.tsx";
 
 const rootRoute = new RootRoute({
 	component: () => (
@@ -30,7 +31,15 @@ const topPicksRoute = new Route({
 	component: () => <TopPicks />,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, latestRoute, topPicksRoute]);
+const searchRoute = new Route({
+	getParentRoute: () => rootRoute,
+	path: "/search",
+	validateSearch: (search) => {
+		return search;
+	},
+	component: () => <Search />,
+});
+const routeTree = rootRoute.addChildren([indexRoute, latestRoute, topPicksRoute, searchRoute]);
 export const router = new Router({ routeTree });
 
 declare module "@tanstack/react-router" {
