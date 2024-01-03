@@ -1,7 +1,7 @@
 import { Outlet } from "@tanstack/react-router";
-import Navbar from "./navbar";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import Footer from "./footer";
+import Navbar from "./navbar";
 
 export default function Layout() {
   return (
