@@ -8,8 +8,8 @@ type TypeBookBig = {
 
 export default function BookBig({ data }: TypeBookBig) {
 	return (
-		<div className="col-span-3">
-			<div className="flex flex-row space-x-4">
+		<div className="col-span-3 h-auto">
+			<div className="flex h-full flex-row space-x-4">
 				<img src={data.image_url} alt="book 1" className="h-auto w-[277px] object-cover" />
 				<div className="flex flex-col justify-between space-y-6">
 					<div className="flex flex-col space-y-4">
