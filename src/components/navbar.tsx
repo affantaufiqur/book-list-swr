@@ -47,7 +47,7 @@ export default function Navbar() {
                     <div className="relative">
                         <Search className="absolute bottom-0 left-2 top-[25%] size-4 text-gray-400 " />
                         <input
-                            className="rounded-md border-[1px] border-gray-200 px-8 py-2 text-sm placeholder:text-sm focus:border-purple-primary focus:outline-purple-primary"
+                            className="rounded-md border-[1px] border-gray-200 px-8 py-2 text-sm placeholder:text-sm focus:border-purple-primary focus:outline-purple-primary md:w-[300px]"
                             type="search"
                             placeholder="Search by title or authors..."
                         />
