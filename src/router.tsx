@@ -2,6 +2,7 @@ import { RootRoute, Route, Router } from "@tanstack/react-router";
 import Layout from "./components/layout";
 import Index from "./routes/index.tsx";
 import Latest from "./routes/latest.tsx";
+import TopPicks from "./routes/top-picks.tsx";
 
 const rootRoute = new RootRoute({
 	component: () => (
@@ -26,7 +27,7 @@ const latestRoute = new Route({
 const topPicksRoute = new Route({
 	getParentRoute: () => rootRoute,
 	path: "/top-picks",
-	component: () => <div>Top Picks</div>,
+	component: () => <TopPicks />,
 });
 
 const routeTree = rootRoute.addChildren([indexRoute, latestRoute, topPicksRoute]);
