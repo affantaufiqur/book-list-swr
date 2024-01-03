@@ -33,7 +33,7 @@ export default function Navbar() {
                             href={route.href}
                             className={`text-sm font-medium ${
                                 router.state.location.href === route.href
-                                    ? "text-purple-primary"
+                                    ? "text-purple-primary underline underline-offset-2"
                                     : "text-slate-800 hover:underline"
                             }`}
                             key={index}
