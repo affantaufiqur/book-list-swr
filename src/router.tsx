@@ -23,7 +23,13 @@ const latestRoute = new Route({
 	component: () => <Latest />,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, latestRoute]);
+const topPicksRoute = new Route({
+	getParentRoute: () => rootRoute,
+	path: "/top-picks",
+	component: () => <div>Top Picks</div>,
+});
+
+const routeTree = rootRoute.addChildren([indexRoute, latestRoute, topPicksRoute]);
 export const router = new Router({ routeTree });
 
 declare module "@tanstack/react-router" {
