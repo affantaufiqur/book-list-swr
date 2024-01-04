@@ -5,7 +5,7 @@ export type TypeBooks = {
         isbn: string;
         image_url: string;
         synopsis: string;
-        is_top_pick: string;
+        is_top_pick: boolean;
         rating: number;
         created_at: string;
         author: {
