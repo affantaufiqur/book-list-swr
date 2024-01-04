@@ -80,10 +80,9 @@ export default function Index() {
             </section>
             <section className="py-12">
                 <div className="grid grid-cols-12 gap-14">
-                    <BookSmall data={data} />
-                    <BookSmall data={data} />
-                    <BookSmall data={data} />
-                    <BookSmall data={data} />
+                    {slicedData?.map((data) => (
+                        <BookSmall data={data} type="normal" key={data.id} />
+                    ))}
                 </div>
             </section>
             <NewsLetter />
