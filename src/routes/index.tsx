@@ -43,9 +43,12 @@ export default function Index() {
                         {truncateText(data?.data[0]?.synopsis as string, 100)}
                     </p>
                     <div className="flex flex-row space-x-4 pt-4">
-                        <button className="rounded-md bg-purple-primary px-4 py-2 text-lg font-medium tracking-tight text-white">
+                        <a
+                            href={`/books/${data?.data[0]?.id}`}
+                            className="inline-flex items-center justify-center rounded-md bg-purple-primary px-4 py-2 text-lg font-medium tracking-tight text-white"
+                        >
                             Read Book
-                        </button>
+                        </a>
 
                         <button className="rounded-md border-2 border-purple-primary bg-transparent px-4 py-2 text-lg font-medium tracking-tight text-purple-primary">
                             See All Recomendation

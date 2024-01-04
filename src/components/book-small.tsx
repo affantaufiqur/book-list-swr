@@ -59,9 +59,12 @@ export default function BookSmall({ data, type, index }: TypeBookSmall) {
             <div className="py-4">
                 <Rating rating={data.rating as number} />
             </div>
-            <button className="w-full rounded-md border-2 border-purple-primary px-4 py-2 text-lg font-medium tracking-tight text-purple-primary">
+            <a
+                href={`/books/${data.id}`}
+                className="inline-flex w-full items-center justify-center rounded-md border-2 border-purple-primary px-4 py-2 text-lg font-medium tracking-tight text-purple-primary"
+            >
                 Read Book
-            </button>
+            </a>
         </div>
     );
 }
