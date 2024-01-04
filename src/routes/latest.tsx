@@ -1,10 +1,11 @@
 import Header from "../components/header";
-import { useFetchAllBooks } from "../hooks/fetch.hook";
+import { useFetch } from "../hooks/fetch.hook";
 import Spinner from "../components/spinner";
 import BookSmall from "../components/book-small";
+import { TypeBooks } from "../utils/types/books.type";
 
 export default function Latest() {
-    const { data, error, isLoading } = useFetchAllBooks();
+    const { data, error, isLoading } = useFetch<TypeBooks>("books");
 
     if (error) return <p>Error fetching data</p>;
     if (isLoading) return <Spinner />;

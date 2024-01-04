@@ -4,10 +4,11 @@ import BookSmall from "../components/book-small";
 import NewsLetter from "../components/newsletter";
 import Rating from "../components/rating";
 import { truncateText } from "../utils/common";
-import { useFetchAllBooks } from "../hooks/fetch.hook";
+import { useFetch } from "../hooks/fetch.hook";
+import { TypeBooks } from "../utils/types/books.type";
 
 export default function Index() {
-    const { data, error, isLoading } = useFetchAllBooks();
+    const { data, error, isLoading } = useFetch<TypeBooks>("books");
 
     if (error) return <p>Error fetching data</p>;
     if (isLoading)
