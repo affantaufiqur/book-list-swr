@@ -1,21 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-import { BASE_URL, truncateText } from "../utils/common";
-import { TypeBooks } from "../utils/types/books.type";
+import { Loader } from "lucide-react";
 import BookBig from "../components/book-big";
 import BookSmall from "../components/book-small";
 import NewsLetter from "../components/newsletter";
 import Rating from "../components/rating";
-import { Loader } from "lucide-react";
+import { truncateText } from "../utils/common";
+import { useFetchAllBooks } from "../hooks/fetch.hook";
 
 export default function Index() {
-    const { data, error, isLoading } = useQuery<TypeBooks>({
-        queryKey: ["fetch-book"],
-        queryFn: async () => {
-            const req = await fetch(`${BASE_URL}/api/books`);
-            const data = await req.json();
-            return data;
-        },
-    });
+    const { data, error, isLoading } = useFetchAllBooks();
 
     if (error) return <p>Error fetching data</p>;
     if (isLoading)
@@ -60,21 +52,21 @@ export default function Index() {
                         </button>
                     </div>
                 </div>
-                <div className="relative inline-block">
+                <div className="relative *:rounded-md *:object-contain">
                     <img
-                        src={data?.data[0]?.image_url}
-                        alt="hero"
-                        className="absolute bottom-0 right-60 top-0 z-50 h-[340px] w-full rounded-md object-contain"
-                    />
-                    <img
-                        src={data?.data[1]?.image_url}
+                        src={data?.data[8]?.image_url}
                         alt="book 2"
-                        className="absolute bottom-0 right-44 top-0 z-30 h-[340px] w-full object-contain"
+                        className="absolute bottom-0 right-52 top-0 z-30 h-[360px] scale-75"
                     />
                     <img
                         src={data?.data[4]?.image_url}
                         alt="book 3"
-                        className="h-[340px]"
+                        className="absolute bottom-0 right-28 h-[360px] scale-50"
+                    />
+                    <img
+                        src={data?.data[0]?.image_url}
+                        alt="hero"
+                        className="relative right-[20rem] z-50 h-[360px]"
                     />
                 </div>
             </section>
