@@ -43,7 +43,9 @@ export default function Latest() {
                                 alt="hero"
                             />
                             <div className="flex flex-col space-y-2">
-                                <p>{truncateText(book.title, 80)}</p>
+                                <a href={`/book/${book.id}`}>
+                                    {truncateText(book.title, 80)}
+                                </a>
                             </div>
                         </div>
                     ))}

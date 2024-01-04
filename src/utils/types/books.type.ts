@@ -36,3 +36,5 @@ export type TypeBooks = {
         total: number;
     };
 };
+
+export type TypeSingleBook = TypeBooks["data"][number];
