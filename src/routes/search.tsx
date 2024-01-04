@@ -1,9 +1,23 @@
 import Header from "../components/header";
-import { useRouter } from "@tanstack/react-router";
+import { useMatchRoute, useRouter } from "@tanstack/react-router";
+import { useFetch } from "../hooks/fetch.hook";
+import Spinner from "../components/spinner";
+import { TypeBooks } from "../utils/types/books.type";
 
 export default function Search() {
     const router = useRouter();
     const query = router.state.location.search.query;
+
+    // make things works idk
+    // this will reload the page when the search query params update
+    // @ts-expect-error unused variable
+    const _ = useMatchRoute();
+
+    const { data, error, isLoading } = useFetch<TypeBooks>(
+        `books?search=${query}`,
+    );
+    if (error) return <p>Error fetching data</p>;
+    if (isLoading) return <Spinner />;
 
     return (
         <div className="container mx-auto">
@@ -12,6 +26,13 @@ export default function Search() {
                     highlightedText="Search For"
                     text={`Search For ${query}`}
                 />
+                {data?.data?.length === 0 ? (
+                    <div className="my-12 rounded-md border-[1px] border-purple-primary p-56">
+                        <h1 className="text-center text-8xl font-medium text-purple-primary">
+                            Book Not Found.
+                        </h1>
+                    </div>
+                ) : null}
             </div>
         </div>
     );

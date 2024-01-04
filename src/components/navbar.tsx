@@ -1,6 +1,7 @@
 import { Search } from "lucide-react";
 import Brand from "./brand";
-import { useRouter } from "@tanstack/react-router";
+import { useNavigate, useRouter } from "@tanstack/react-router";
+import { useState } from "react";
 
 const routes = [
     {
@@ -22,6 +23,18 @@ const routes = [
 
 export default function Navbar() {
     const router = useRouter();
+    const [input, setInput] = useState("");
+    const navigate = useNavigate();
+
+    function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        // router.navigate({
+        //     from: "/search",
+        //     to: "/search",
+        //     search: { query: input },
+        // });
+        navigate({ from: "/search", to: "/search", search: { query: input } });
+    }
 
     return (
         <div className="container mx-auto">
@@ -43,19 +56,22 @@ export default function Navbar() {
                     ))}
                 </nav>
 
-                <div className="flex flex-row space-x-2">
-                    <div className="relative">
-                        <Search className="absolute bottom-0 left-2 top-[25%] size-4 text-gray-400 " />
-                        <input
-                            className="rounded-md border-[1px] border-gray-200 px-8 py-2 text-sm placeholder:text-sm focus:border-purple-primary focus:outline-purple-primary md:w-[300px]"
-                            type="search"
-                            placeholder="Search by title or authors..."
-                        />
-                    </div>
+                <form
+                    className="relative flex flex-row space-x-2"
+                    onSubmit={onSubmit}
+                >
+                    <Search className="absolute bottom-0 left-4 top-[25%] size-4 text-gray-400 " />
+                    <input
+                        className="rounded-md border-[1px] border-gray-200 px-8 py-2 text-sm placeholder:text-sm focus:border-purple-primary focus:outline-purple-primary md:w-[300px]"
+                        type="search"
+                        placeholder="Search by title or authors..."
+                        required={true}
+                        onChange={(e) => setInput(e.target.value)}
+                    />
                     <button className="rounded-md border-[1px] border-[#8170F2] px-4 py-1 text-[#8170F2]">
                         Edit List
                     </button>
-                </div>
+                </form>
             </div>
         </div>
     );
