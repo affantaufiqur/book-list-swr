@@ -66,7 +66,7 @@ export default function Index() {
                     <img
                         src={data?.data[0]?.image_url}
                         alt="hero"
-                        className="relative right-[20rem] z-50 h-[360px]"
+                        className="relative right-[20rem] z-50 h-[380px]"
                     />
                 </div>
             </section>

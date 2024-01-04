@@ -10,6 +10,7 @@ import Latest from "./routes/latest.tsx";
 import TopPicks from "./routes/top-picks.tsx";
 import Search from "./routes/search.tsx";
 import NotFound from "./routes/not-found.tsx";
+import BookById from "./routes/book.id.tsx";
 
 const rootRoute = new RootRoute({
     component: () => (
@@ -46,6 +47,11 @@ const searchRoute = new Route({
     component: () => <Search />,
 });
 
+const bookPage = new Route({
+    getParentRoute: () => rootRoute,
+    path: "/book/$id",
+    component: () => <BookById />,
+});
 const notFoundRoute = new NotFoundRoute({
     getParentRoute: () => rootRoute,
     component: () => <NotFound />,
@@ -56,6 +62,7 @@ const routeTree = rootRoute.addChildren([
     latestRoute,
     topPicksRoute,
     searchRoute,
+    bookPage,
 ]);
 export const router = new Router({ routeTree, notFoundRoute });
 
