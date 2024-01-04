@@ -3,6 +3,7 @@ import { useMatchRoute, useRouter } from "@tanstack/react-router";
 import { useFetch } from "../hooks/fetch.hook";
 import Spinner from "../components/spinner";
 import { TypeBooks } from "../utils/types/books.type";
+import BookSmall from "../components/book-small";
 
 export default function Search() {
     const router = useRouter();
@@ -32,7 +33,17 @@ export default function Search() {
                             Book Not Found.
                         </h1>
                     </div>
-                ) : null}
+                ) : (
+                    <div className="my-4 grid grid-cols-12 gap-4">
+                        {data?.data?.map((book) => (
+                            <BookSmall
+                                key={book.id}
+                                data={book}
+                                type="normal"
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );
