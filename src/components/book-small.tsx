@@ -60,7 +60,7 @@ export default function BookSmall({ data, type, index }: TypeBookSmall) {
                 <Rating rating={data.rating as number} />
             </div>
             <a
-                href={`/books/${data.id}`}
+                href={`/book/${data.id}`}
                 className="inline-flex w-full items-center justify-center rounded-md border-2 border-purple-primary px-4 py-2 text-lg font-medium tracking-tight text-purple-primary"
             >
                 Read Book

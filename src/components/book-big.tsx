@@ -34,7 +34,7 @@ export default function BookBig({ data }: TypeBookBig) {
                     </div>
                     <p>{truncateText(data.synopsis as string, 100)}</p>
                     <a
-                        href={`/books/${data.id}`}
+                        href={`/book/${data.id}`}
                         className="inline-flex items-center justify-center rounded-md border-2 border-purple-primary bg-transparent px-4 py-2 text-xl font-medium tracking-tight text-purple-primary"
                     >
                         Read Book

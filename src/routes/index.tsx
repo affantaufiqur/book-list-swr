@@ -45,7 +45,7 @@ export default function Index() {
                     </p>
                     <div className="flex flex-row space-x-4 pt-4">
                         <a
-                            href={`/books/${data?.data[0]?.id}`}
+                            href={`/book/${data?.data[0]?.id}`}
                             className="inline-flex items-center justify-center rounded-md bg-purple-primary px-4 py-2 text-lg font-medium tracking-tight text-white"
                         >
                             Read Book
