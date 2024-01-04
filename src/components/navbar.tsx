@@ -55,23 +55,24 @@ export default function Navbar() {
                         </a>
                     ))}
                 </nav>
-
-                <form
-                    className="relative flex flex-row space-x-2"
-                    onSubmit={onSubmit}
-                >
-                    <Search className="absolute bottom-0 left-4 top-[25%] size-4 text-gray-400 " />
-                    <input
-                        className="rounded-md border-[1px] border-gray-200 px-8 py-2 text-sm placeholder:text-sm focus:border-purple-primary focus:outline-purple-primary md:w-[300px]"
-                        type="search"
-                        placeholder="Search by title or authors..."
-                        required={true}
-                        onChange={(e) => setInput(e.target.value)}
-                    />
+                <div className="flex flex-row space-x-3">
+                    <form
+                        className="relative flex flex-row space-x-2"
+                        onSubmit={onSubmit}
+                    >
+                        <Search className="absolute bottom-0 left-4 top-[25%] size-4 text-gray-400 " />
+                        <input
+                            className="rounded-md border-[1px] border-gray-200 px-8 py-2 text-sm placeholder:text-sm focus:border-purple-primary focus:outline-purple-primary md:w-[300px]"
+                            type="search"
+                            placeholder="Search by title or authors..."
+                            required={true}
+                            onChange={(e) => setInput(e.target.value)}
+                        />
+                    </form>
                     <button className="rounded-md border-[1px] border-[#8170F2] px-4 py-1 text-[#8170F2]">
                         Edit List
                     </button>
-                </form>
+                </div>
             </div>
         </div>
     );

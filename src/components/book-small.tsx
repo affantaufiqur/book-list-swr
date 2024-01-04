@@ -48,7 +48,7 @@ export default function BookSmall({ data, type, index }: TypeBookSmall) {
             <div className="h-full w-full">
                 <img
                     src={data.image_url}
-                    alt="hero"
+                    alt={data.title}
                     className="h-full w-full rounded-md object-contain"
                 />
             </div>

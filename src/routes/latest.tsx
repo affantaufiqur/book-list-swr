@@ -18,6 +18,8 @@ export default function Latest() {
             .slice(0, 4);
     };
 
+    const filteredData = getLatestFourBooks();
+
     return (
         <div className="container mx-auto">
             <section className="py-12">
@@ -25,8 +27,8 @@ export default function Latest() {
                     highlightedText="Latest"
                     text="Our Latest Collections"
                 />
-                <div className="flex flex-row space-x-4 py-8">
-                    {getLatestFourBooks()?.map((book) => (
+                <div className="grid grid-cols-12 gap-6">
+                    {filteredData?.map((book) => (
                         <BookSmall key={book.id} data={book} type="with-date" />
                     ))}
                 </div>

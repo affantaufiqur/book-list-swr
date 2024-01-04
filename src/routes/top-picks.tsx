@@ -21,7 +21,7 @@ export default function TopPicks() {
         <div className="container mx-auto">
             <div className="py-12">
                 <Header highlightedText="Top" text="Top Picks Collection" />
-                <div className="flex flex-row space-x-4 py-8">
+                <div className="grid h-full grid-cols-12 gap-4">
                     {filteredData?.map((book, index) => (
                         <BookSmall
                             key={book.id}
