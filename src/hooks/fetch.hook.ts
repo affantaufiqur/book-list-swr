@@ -18,3 +18,11 @@ export function useFetchBookById(id: number) {
     });
     return { data, error, isLoading };
 }
+
+export function useFetch<T>(endpoint: string) {
+    const { data, error, isLoading } = useQuery({
+        queryKey: [`fetch-${endpoint}`],
+        queryFn: async () => await getDataFromApi<T>(endpoint),
+    });
+    return { data, error, isLoading };
+}

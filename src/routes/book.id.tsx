@@ -1,11 +1,14 @@
 import { useParams } from "@tanstack/react-router";
-import { useFetchBookById } from "../hooks/fetch.hook";
+import { useFetch } from "../hooks/fetch.hook";
 import Spinner from "../components/spinner";
 import Rating from "../components/rating";
+import { TypeSingleBook } from "../utils/types/books.type";
 
 export default function BookById() {
     const params = useParams({ strict: false });
-    const { data, error, isLoading } = useFetchBookById(parseInt(params.id));
+    const { data, error, isLoading } = useFetch<TypeSingleBook>(
+        `books/${params.id}`,
+    );
 
     if (error) return <p>Error fetching data</p>;
     if (isLoading) return <Spinner />;
