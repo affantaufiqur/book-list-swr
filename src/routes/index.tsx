@@ -1,22 +1,18 @@
-import { Loader } from "lucide-react";
 import BookBig from "../components/book-big";
 import BookSmall from "../components/book-small";
+import FetchError from "../components/error";
 import NewsLetter from "../components/newsletter";
 import Rating from "../components/rating";
-import { truncateText } from "../utils/common";
+import Spinner from "../components/spinner";
 import { useFetch } from "../hooks/fetch.hook";
+import { truncateText } from "../utils/common";
 import { TypeBooks } from "../utils/types/books.type";
 
 export default function Index() {
     const { data, error, isLoading } = useFetch<TypeBooks>("books");
 
-    if (error) return <p>Error fetching data</p>;
-    if (isLoading)
-        return (
-            <div className="flex items-center justify-center py-12">
-                <Loader className="size-6 animate-spin" />
-            </div>
-        );
+    if (error) return <FetchError />;
+    if (isLoading) return <Spinner />;
 
     function takeFourItemsFromData() {
         return data?.data.slice(0, 4);
