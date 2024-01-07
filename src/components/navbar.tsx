@@ -2,6 +2,7 @@ import { Search } from "lucide-react";
 import Brand from "./brand";
 import { useNavigate, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
+import Button from "./button";
 
 const routes = [
     {
@@ -55,7 +56,7 @@ export default function Navbar() {
                         className="relative flex flex-row space-x-2"
                         onSubmit={onSubmit}
                     >
-                        <Search className="absolute bottom-0 left-4 top-[25%] size-4 text-gray-400 " />
+                        <Search className="absolute bottom-0 left-4 top-[31%] size-4 text-gray-400 " />
                         <input
                             className="rounded-md border-[1px] border-gray-200 px-8 py-2 text-sm placeholder:text-sm focus:border-purple-primary focus:outline-purple-primary md:w-[300px]"
                             type="search"
@@ -64,9 +65,7 @@ export default function Navbar() {
                             onChange={(e) => setInput(e.target.value)}
                         />
                     </form>
-                    <button className="rounded-md border-[1px] border-[#8170F2] px-4 py-1 text-[#8170F2]">
-                        Edit List
-                    </button>
+                    <Button state="secondary">Edit List</Button>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import { useFetch } from "../hooks/fetch.hook";
 import Spinner from "../components/spinner";
 import { TypeBooks } from "../utils/types/books.type";
 import BookSmall from "../components/book-small";
+import FetchError from "../components/error";
 
 export default function Search() {
     const router = useRouter();
@@ -17,7 +18,8 @@ export default function Search() {
     const { data, error, isLoading } = useFetch<TypeBooks>(
         `books?search=${query}`,
     );
-    if (error) return <p>Error fetching data</p>;
+
+    if (error) return <FetchError />;
     if (isLoading) return <Spinner />;
 
     return (

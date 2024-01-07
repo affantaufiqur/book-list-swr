@@ -1,7 +1,6 @@
 import BookBig from "../components/book-big";
 import BookSmall from "../components/book-small";
 import FetchError from "../components/error";
-import NewsLetter from "../components/newsletter";
 import Rating from "../components/rating";
 import Spinner from "../components/spinner";
 import { useFetch } from "../hooks/fetch.hook";
@@ -24,9 +23,9 @@ export default function Index() {
         <main className="container mx-auto min-h-screen py-4">
             <section className="flex flex-row justify-between rounded-md bg-[#F1F0FE] p-12">
                 <div className="flex flex-col space-y-3">
-                    <h1 className="text-xl font-semibold tracking-tight text-purple-primary">
+                    <h3 className="text-xl font-semibold tracking-tight text-purple-primary">
                         MUST READ
-                    </h1>
+                    </h3>
                     <h1 className="max-w-lg text-[3rem] font-semibold tracking-tight">
                         {data?.data[0]?.title}
                     </h1>
@@ -52,6 +51,7 @@ export default function Index() {
                         </button>
                     </div>
                 </div>
+                {/* I give up help*/}
                 <div className="relative *:rounded-md *:object-contain">
                     <img
                         src={data?.data[8]?.image_url}
@@ -78,14 +78,13 @@ export default function Index() {
                     ))}
                 </div>
             </section>
-            <section className="py-12">
-                <div className="grid grid-cols-12 gap-14">
+            <section className="py-8">
+                <div className="grid h-full grid-cols-12 gap-4">
                     {slicedData?.map((data) => (
                         <BookSmall data={data} type="normal" key={data.id} />
                     ))}
                 </div>
             </section>
-            <NewsLetter />
         </main>
     );
 }

@@ -1,4 +1,5 @@
 import BookSmall from "../components/book-small";
+import FetchError from "../components/error";
 import Header from "../components/header";
 import Spinner from "../components/spinner";
 import { useFetch } from "../hooks/fetch.hook";
@@ -6,7 +7,7 @@ import { TypeBooks } from "../utils/types/books.type";
 
 export default function TopPicks() {
     const { data, error, isLoading } = useFetch<TypeBooks>("books");
-    if (error) return <p>Error fetching data</p>;
+    if (error) return <FetchError />;
     if (isLoading) return <Spinner />;
 
     function filterTopPicks() {
@@ -21,7 +22,7 @@ export default function TopPicks() {
         <div className="container mx-auto">
             <div className="py-12">
                 <Header highlightedText="Top" text="Top Picks Collection" />
-                <div className="grid h-full grid-cols-12 gap-4">
+                <div className="mt-4 grid h-full grid-cols-12 gap-4">
                     {filteredData?.map((book, index) => (
                         <BookSmall
                             key={book.id}

@@ -27,7 +27,7 @@ export default function Latest() {
                     highlightedText="Latest"
                     text="Our Latest Collections"
                 />
-                <div className="grid grid-cols-12 gap-6">
+                <div className="mt-4 grid grid-cols-12 gap-6">
                     {filteredData?.map((book) => (
                         <BookSmall key={book.id} data={book} type="with-date" />
                     ))}

@@ -44,12 +44,11 @@ export default function BookSmall({ data, type, index }: TypeBookSmall) {
                     )}
                 </div>
             )}
-            {/* I give up*/}
             <div className="h-full w-full">
                 <img
                     src={data.image_url}
                     alt={data.title}
-                    className="h-full w-full rounded-md object-contain"
+                    className="h-full w-full rounded-md object-cover"
                 />
             </div>
             <p className="text-lg font-semibold">{truncateText(data.title)}</p>

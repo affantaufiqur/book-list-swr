@@ -4,6 +4,7 @@ import Spinner from "../components/spinner";
 import Rating from "../components/rating";
 import { TypeSingleBook } from "../utils/types/books.type";
 import { truncateText } from "../utils/common";
+import FetchError from "../components/error";
 
 export default function BookById() {
     const params = useParams({ strict: false });
@@ -11,7 +12,7 @@ export default function BookById() {
         `books/${params.id}`,
     );
 
-    if (error) return <p>Error fetching data</p>;
+    if (error) return <FetchError />;
     if (isLoading) return <Spinner />;
 
     function formatDate(date: string) {
@@ -25,14 +26,14 @@ export default function BookById() {
 
     return (
         <div className="container mx-auto py-12">
-            <div className="flex flex-row space-x-12">
+            <div className="flex flex-row items-start space-x-12">
                 <img
                     src={data?.image_url}
                     className="h-full max-w-[720px] rounded-md object-contain"
                 />
                 <div className="flex flex-col justify-between space-y-4 px-12">
                     <div className="flex flex-col space-y-4">
-                        <h1 className="text-[3.875rem] font-semibold leading-tight tracking-wide">
+                        <h1 className="text-[3.875rem] font-semibold leading-tight tracking-tight">
                             {truncateText(data?.title as string, 120)}
                         </h1>
                         <h4 className="text-4xl font-normal text-slate-800">
