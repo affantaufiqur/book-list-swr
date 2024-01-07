@@ -28,11 +28,6 @@ export default function Navbar() {
 
     function onSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        // router.navigate({
-        //     from: "/search",
-        //     to: "/search",
-        //     search: { query: input },
-        // });
         navigate({ from: "/search", to: "/search", search: { query: input } });
     }
 
