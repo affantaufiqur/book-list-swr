@@ -21,7 +21,7 @@ export default function Latest() {
     const filteredData = getLatestFourBooks();
 
     return (
-        <div className="container mx-auto">
+        <div className="">
             <section className="py-12">
                 <Header
                     highlightedText="Latest"

@@ -19,7 +19,7 @@ export default function TopPicks() {
     const filteredData = filterTopPicks();
 
     return (
-        <div className="container mx-auto">
+        <div className="">
             <div className="py-12">
                 <Header highlightedText="Top" text="Top Picks Collection" />
                 <div className="mt-4 grid h-full grid-cols-12 gap-4">

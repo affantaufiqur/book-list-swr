@@ -25,7 +25,7 @@ export default function BookById() {
     }
 
     return (
-        <div className="container mx-auto py-12">
+        <div className="py-12">
             <div className="flex flex-row items-start space-x-12">
                 <img
                     src={data?.image_url}

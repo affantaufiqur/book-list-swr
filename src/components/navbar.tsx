@@ -33,7 +33,7 @@ export default function Navbar() {
     }
 
     return (
-        <div className="container mx-auto">
+        <div className="">
             <div className="flex flex-row items-center justify-between">
                 <Brand />
                 <nav className="flex flex-row space-x-4">

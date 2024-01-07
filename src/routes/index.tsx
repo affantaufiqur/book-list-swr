@@ -20,14 +20,14 @@ export default function Index() {
     const slicedData = takeFourItemsFromData();
 
     return (
-        <main className="container mx-auto min-h-screen py-4">
+        <main className=" min-h-screen py-4">
             <section className="flex flex-row justify-between rounded-md bg-[#F1F0FE] p-12">
                 <div className="flex flex-col space-y-3">
                     <h3 className="text-xl font-semibold tracking-tight text-purple-primary">
                         MUST READ
                     </h3>
                     <h1 className="max-w-lg text-[3rem] font-semibold tracking-tight">
-                        {data?.data[0]?.title}
+                        {truncateText(data?.data[0]?.title as string, 50)}
                     </h1>
                     <div className="flex max-w-lg flex-row items-center space-x-2">
                         <h4 className="text-slate-700">
@@ -51,7 +51,7 @@ export default function Index() {
                         </button>
                     </div>
                 </div>
-                {/* I give up help*/}
+                {/* I give up help */}
                 <div className="relative *:rounded-md *:object-contain">
                     <img
                         src={data?.data[8]?.image_url}

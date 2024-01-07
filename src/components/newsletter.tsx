@@ -1,6 +1,6 @@
 export default function NewsLetter() {
     return (
-        <div className="container mx-auto">
+        <div className="">
             <div className="rounded-md bg-purple-primary p-28">
                 <h1 className="text-center text-4xl font-medium leading-normal tracking-tight text-white">
                     Join our Newsletter to get our latest recomendation!

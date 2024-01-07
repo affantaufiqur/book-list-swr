@@ -23,7 +23,7 @@ export default function Search() {
     if (isLoading) return <Spinner />;
 
     return (
-        <div className="container mx-auto">
+        <div className="">
             <div className="py-12">
                 <Header
                     highlightedText="Search For"
