@@ -34,13 +34,13 @@ export default function Navbar() {
 
     return (
         <div className="">
-            <div className="flex flex-row items-center justify-between">
+            <div className="flex flex-row items-end justify-between">
                 <Brand />
                 <nav className="flex flex-row space-x-4">
                     {routes.map((route, index) => (
                         <a
                             href={route.href}
-                            className={`text-sm font-medium ${
+                            className={`text-md font-medium ${
                                 router.state.location.href === route.href
                                     ? "text-purple-primary underline underline-offset-2"
                                     : "text-slate-800 hover:underline"

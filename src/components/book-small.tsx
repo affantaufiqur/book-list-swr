@@ -8,24 +8,24 @@ type TypeBookSmall = {
     index?: number;
 };
 
-export default function BookSmall({ data, type, index }: TypeBookSmall) {
-    function formatDate(dateString: string): string {
-        const date = new Date(dateString);
+function formatDate(dateString: string): string {
+    const date = new Date(dateString);
 
-        if (isNaN(date.getTime())) {
-            throw new Error("Invalid date string");
-        }
-
-        const day: string | number = date.getDate();
-        const month: string | number = date.getMonth() + 1;
-        const year: number = date.getFullYear();
-
-        const formattedDay: string = day < 10 ? `0${day}` : `${day}`;
-        const formattedMonth: string = month < 10 ? `0${month}` : `${month}`;
-
-        return `${formattedDay}/${formattedMonth}/${year}`;
+    if (isNaN(date.getTime())) {
+        throw new Error("Invalid date string");
     }
 
+    const day: string | number = date.getDate();
+    const month: string | number = date.getMonth() + 1;
+    const year: number = date.getFullYear();
+
+    const formattedDay: string = day < 10 ? `0${day}` : `${day}`;
+    const formattedMonth: string = month < 10 ? `0${month}` : `${month}`;
+
+    return `${formattedDay}/${formattedMonth}/${year}`;
+}
+
+export default function BookSmall({ data, type, index }: TypeBookSmall) {
     return (
         <div className="relative col-span-3 flex flex-col space-y-2">
             {type === "normal" ? null : (
@@ -51,10 +51,14 @@ export default function BookSmall({ data, type, index }: TypeBookSmall) {
                     className="h-full w-full rounded-md object-cover"
                 />
             </div>
-            <p className="text-lg font-semibold">{truncateText(data.title)}</p>
-            <p className="text-md font-normal text-slate-800">
-                By {data.author.name}
-            </p>
+            <div className="flex flex-col space-y-1">
+                <p className="text-lg font-semibold">
+                    {truncateText(data.title)}
+                </p>
+                <p className="text-md font-normal text-slate-800">
+                    By {data.author.name}
+                </p>
+            </div>
             <div className="py-4">
                 <Rating rating={data.rating as number} />
             </div>
