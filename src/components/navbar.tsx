@@ -33,7 +33,7 @@ export default function Navbar() {
     }
 
     return (
-        <div className="">
+        <section>
             <div className="flex flex-row items-end justify-between">
                 <Brand />
                 <nav className="flex flex-row space-x-4">
@@ -68,6 +68,6 @@ export default function Navbar() {
                     <Button state="secondary">Edit List</Button>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
