@@ -1,7 +1,7 @@
 import NotFoundImg from "../assets/Books.png";
 export default function NotFound() {
     return (
-        <div className="">
+        <div className="pb-12">
             <img
                 src={NotFoundImg}
                 alt="Not Found"
