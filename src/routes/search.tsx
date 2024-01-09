@@ -27,7 +27,7 @@ export default function Search() {
             <div className="py-12">
                 <Header
                     highlightedText="Search For"
-                    text={`Search For ${query}`}
+                    text={`Search For ${query === undefined ? "" : query}`}
                 />
                 {data?.data?.length === 0 ? (
                     <div className="my-12 rounded-md border-[1px] border-purple-primary p-56">
