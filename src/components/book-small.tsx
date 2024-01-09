@@ -1,4 +1,4 @@
-import { truncateText } from "../utils/common";
+import { formatDate, truncateText } from "../utils/common";
 import { TypeBooks } from "../utils/types/books.type";
 import Rating from "./rating";
 
@@ -7,23 +7,6 @@ type TypeBookSmall = {
     type?: "normal" | "with-date" | "with-picks";
     index?: number;
 };
-
-function formatDate(dateString: string): string {
-    const date = new Date(dateString);
-
-    if (isNaN(date.getTime())) {
-        throw new Error("Invalid date string");
-    }
-
-    const day: string | number = date.getDate();
-    const month: string | number = date.getMonth() + 1;
-    const year: number = date.getFullYear();
-
-    const formattedDay: string = day < 10 ? `0${day}` : `${day}`;
-    const formattedMonth: string = month < 10 ? `0${month}` : `${month}`;
-
-    return `${formattedDay}/${formattedMonth}/${year}`;
-}
 
 export default function BookSmall({ data, type, index }: TypeBookSmall) {
     return (
