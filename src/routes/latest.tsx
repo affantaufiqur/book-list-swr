@@ -3,11 +3,12 @@ import { useFetch } from "../hooks/fetch.hook";
 import Spinner from "../components/spinner";
 import BookSmall from "../components/book-small";
 import { TypeBooks } from "../utils/types/books.type";
+import FetchError from "../components/error";
 
 export default function Latest() {
     const { data, error, isLoading } = useFetch<TypeBooks>("books");
 
-    if (error) return <p>Error fetching data</p>;
+    if (error) return <FetchError />;
     if (isLoading) return <Spinner />;
 
     const getLatestFourBooks = () => {
