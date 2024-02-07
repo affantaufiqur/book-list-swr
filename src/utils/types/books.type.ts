@@ -1,40 +1,40 @@
 export type TypeBooks = {
-    data: {
-        id: number;
-        title: string;
-        isbn: string;
-        image_url: string;
-        synopsis: string;
-        is_top_pick: boolean;
-        rating: number;
-        created_at: string;
-        author: {
-            id: number;
-            name: string;
-        };
-        categories: {
-            id: number;
-            name: string;
-        }[];
-    }[];
-    links: {
-        url: string;
-        label: string;
-        active: boolean;
-    }[];
-    meta: {
-        current_page: number;
-        first_page_url: string;
-        from: number;
-        last_page: number;
-        last_page_url: string;
-        next_page_url: string;
-        path: string;
-        per_page: number;
-        prev_page_url: string;
-        to: number;
-        total: number;
+  data: {
+    id: number;
+    title: string;
+    isbn: string;
+    image_url: string;
+    synopsis: string;
+    is_top_pick: boolean;
+    rating: number;
+    created_at: string;
+    author: {
+      id: number;
+      name: string;
     };
+    categories: {
+      id: number;
+      name: string;
+    }[];
+  }[];
+  links: {
+    url: string;
+    label: string;
+    active: boolean;
+  }[];
+  meta: {
+    current_page: number;
+    first_page_url: string;
+    from: number;
+    last_page: number;
+    last_page_url: string;
+    next_page_url: string;
+    path: string;
+    per_page: number;
+    prev_page_url: string;
+    to: number;
+    total: number;
+  };
 };
 
 export type TypeSingleBook = TypeBooks["data"][number];

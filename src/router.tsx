@@ -1,8 +1,8 @@
 import {
-    NotFoundRoute,
-    RootRoute,
-    Route,
-    Router,
+  NotFoundRoute,
+  RootRoute,
+  Route,
+  Router,
 } from "@tanstack/react-router";
 import Layout from "./components/layout";
 import Index from "./routes/index.tsx";
@@ -13,61 +13,61 @@ import NotFound from "./routes/not-found.tsx";
 import BookById from "./routes/book.id.tsx";
 
 const rootRoute = new RootRoute({
-    component: () => (
-        <>
-            <Layout />
-        </>
-    ),
+  component: () => (
+    <>
+      <Layout />
+    </>
+  ),
 });
 
 const indexRoute = new Route({
-    getParentRoute: () => rootRoute,
-    path: "/",
-    component: () => <Index />,
+  getParentRoute: () => rootRoute,
+  path: "/",
+  component: () => <Index />,
 });
 
 const latestRoute = new Route({
-    getParentRoute: () => rootRoute,
-    path: "/latest",
-    component: () => <Latest />,
+  getParentRoute: () => rootRoute,
+  path: "/latest",
+  component: () => <Latest />,
 });
 
 const topPicksRoute = new Route({
-    getParentRoute: () => rootRoute,
-    path: "/top-picks",
-    component: () => <TopPicks />,
+  getParentRoute: () => rootRoute,
+  path: "/top-picks",
+  component: () => <TopPicks />,
 });
 
 const searchRoute = new Route({
-    getParentRoute: () => rootRoute,
-    path: "/search",
-    validateSearch: (search) => {
-        return search;
-    },
-    component: () => <Search />,
+  getParentRoute: () => rootRoute,
+  path: "/search",
+  validateSearch: (search) => {
+    return search;
+  },
+  component: () => <Search />,
 });
 
 const bookPage = new Route({
-    getParentRoute: () => rootRoute,
-    path: "/book/$id",
-    component: () => <BookById />,
+  getParentRoute: () => rootRoute,
+  path: "/book/$id",
+  component: () => <BookById />,
 });
 const notFoundRoute = new NotFoundRoute({
-    getParentRoute: () => rootRoute,
-    component: () => <NotFound />,
+  getParentRoute: () => rootRoute,
+  component: () => <NotFound />,
 });
 
 const routeTree = rootRoute.addChildren([
-    indexRoute,
-    latestRoute,
-    topPicksRoute,
-    searchRoute,
-    bookPage,
+  indexRoute,
+  latestRoute,
+  topPicksRoute,
+  searchRoute,
+  bookPage,
 ]);
 export const router = new Router({ routeTree, notFoundRoute });
 
 declare module "@tanstack/react-router" {
-    interface Register {
-        router: typeof router;
-    }
+  interface Register {
+    router: typeof router;
+  }
 }

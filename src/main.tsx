@@ -7,19 +7,19 @@ import { RouterProvider } from "@tanstack/react-router";
 import { router } from "./router.tsx";
 
 const queryClient = new QueryClient({
-    defaultOptions: {
-        queries: {
-            refetchOnWindowFocus: false,
-            staleTime: 15 * 60 * 1000, // 15 minutes
-        },
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      staleTime: 15 * 60 * 1000, // 15 minutes
     },
+  },
 });
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-    <React.StrictMode>
-        <QueryClientProvider client={queryClient}>
-            <RouterProvider router={router} />
-            <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
-    </React.StrictMode>,
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  </React.StrictMode>,
 );
